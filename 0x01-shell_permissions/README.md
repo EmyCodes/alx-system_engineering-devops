@@ -1,1 +1,1 @@
-script that adds execute permission to the owner of the file hello
+Task 7 to 13
