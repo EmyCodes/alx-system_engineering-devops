@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #   Insralling Nginx
 #   Listening at port 80
 #   Querying nginx
