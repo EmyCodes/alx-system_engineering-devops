@@ -8,6 +8,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 
 # Configuring nginx
+sudo ufw enable
 sudo ufw allow 'Nginx HTTP'
 
 # Creating sample page
