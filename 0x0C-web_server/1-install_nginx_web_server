@@ -19,4 +19,4 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # Start Web Server
-sudo service nginx start
+service nginx start
