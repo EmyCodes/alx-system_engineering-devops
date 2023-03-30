@@ -10,7 +10,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 
 # Install nginx
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 
 # Handling Firewall
 sudo ufw allow 'Nginx HTTP'
