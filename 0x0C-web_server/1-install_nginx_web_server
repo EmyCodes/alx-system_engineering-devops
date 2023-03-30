@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
+
 #   Insralling Nginx
 #   Listening at port 80
 #   Querying nginx
@@ -19,4 +20,4 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # Start Web Server
-service nginx start
+sudo service nginx start
