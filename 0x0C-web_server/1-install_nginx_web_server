@@ -1,7 +1,22 @@
-#!/usr/bin/env bash
-# Installs nginx server
-apt-get update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-service nginx start
+#!/usr/bin/env python3
+#   Insralling Nginx
+#   Listening at port 80
+#   Querying nginx
+
+# Update Ubuntu
+sudo apt-get -y update
+
+# Upgrade Ubuntu
+sudo apt-get -y upgrade
+
+# Install nginx
+sudo apt-get install nginx
+
+# Handling Firewall
+sudo ufw allow 'Nginx HTTP'
+
+# Querying Nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Start Web Server
+sudo service nginx start
