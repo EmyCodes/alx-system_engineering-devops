@@ -3,16 +3,20 @@
 #   Listening at port 80
 #   Querying nginx
 
-# Installing nginx
+# Update Ubuntu
 sudo apt-get -y update
-sudo apt-get -y install nginx
 
-# Configuring nginx
-sudo ufw enable
+# Upgrade Ubuntu
+sudo apt-get -y upgrade
+
+# Install nginx
+sudo apt-get install nginx
+
+# Handling Firewall
 sudo ufw allow 'Nginx HTTP'
 
-# Creating sample page
-echo "Hello World!" > /var/www/html/index.html
+# Querying Nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-# Start Nginx
-service nginx start
+# Start Web Server
+sudo service nginx start
