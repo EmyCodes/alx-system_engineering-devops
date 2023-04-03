@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
-# Script that configures a new Ubuntu machine to respect above requirements
+# Installs Nginx with the following configurations:
+#    Listens on port 80.
+#    Returns a page containing "Hello World" when queried
+#    at the root with a curl GET request.
 
-sudo apt-get update
+# Install nginx
+sudo apt-get -y update
 sudo apt-get install -y nginx
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
-string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.blog.ehoneahobed.com permanent;"
-sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+# configure nginx to listen on port 80
+ufw allow 'Nginx HTTP'
 
-sudo service nginx restart
+# Creating Sample Page
+echo "Hello World!" > /var/www/html/index.html
+
+# Redirecting
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com/EmyCodes?tab=repositories;"
+sudo sed -i "s/server_name _;/$string_for_replacement/g" /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+service nginx restart
