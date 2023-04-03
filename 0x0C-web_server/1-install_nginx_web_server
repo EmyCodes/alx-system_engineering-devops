@@ -16,7 +16,19 @@ sudo apt-get install nginx
 sudo ufw allow 'Nginx HTTP'
 
 # Querying Nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # Start Web Server
 sudo service nginx start
+# Configure nginx to listen on port 80
+sudo sed -i 's/listen\ 80\ default_server/listen\ 80/' /etc/nginx/sites-available/default
+
+# Restart nginx
+sudo service nginx restart
+
+# Test nginx
+if curl http://localhost/ | grep "Hello World!"; then
+    echo "Nginx installed and configured successfully"
+else
+    echo "Nginx installation or configuration failed"
+fi
