@@ -16,7 +16,7 @@ echo "Hello World!" > /var/www/html/index.html
 
 # Redirecting
 string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com/EmyCodes?tab=repositories;\n"
-sudo sed -i "s#server_name _;#$string_for_replacement#g" /etc/nginx/sites-enabled/default
+sudo sed -i "s/server_name _;/$string_for_replacement/g" /etc/nginx/sites-enabled/default
 
 # Restart Nginx
 service nginx restart
