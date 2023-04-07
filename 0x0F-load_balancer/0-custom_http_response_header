@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Installs Nginx with the following configurations:
+#    Listens on port 80.
+#    Returns a page containing "Hello World" when queried
+#    at the root with a curl GET request.
+
+# Install nginx
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+# configure nginx to listen on port 80
+ufw allow 'Nginx HTTP'
+
+# Creating Sample Page
+echo "Hello World!" > /var/www/html/index.html
+
+# Redirecting
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com/EmyCodes?tab=repositories;\n"
+sudo sed -i "s#server_name _;#$string_for_replacement#g" /etc/nginx/sites-enabled/default
+
+# code for error page and redirect error 404
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+string_for_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# HTTP Response header configuration
+sudo sed -i '/^http {/a \\tadd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+
+# Restart Nginx
+service nginx restart
