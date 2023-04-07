@@ -4,7 +4,7 @@
 sudo apt-get update -y
 sudo apt-get install haproxy -y
 
-# Configure the server
+# Configure the server to both frontend and backend
 echo "
 frontend emycodes_frontend
     bind *:80
