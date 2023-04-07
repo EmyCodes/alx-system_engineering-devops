@@ -8,13 +8,14 @@ sudo apt-get install haproxy -y
 echo "
 frontend emycodes_frontend
     bind *:80
-    default_backend emycodes_backend
+    mode http
+    default_backend emycode_backend
 
-backend emycodes_backend
+backend emycode_backend
     balance roundrobin
     server 138989-web-01 54.174.11.183:80 check
     server 138989-web-02 54.90.61.187:80 check
-" >> /etc/haproxy/haproxy.cfg
+">> /etc/haproxy/haproxy.cfg
 
 # Enabling HAproxy
 sudo sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/haproxy
