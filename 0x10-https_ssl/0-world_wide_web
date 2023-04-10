@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-
+# This bash function display  points to do
 func ()
 {
     res=$(dig "$2.$1" | grep -A1 "ANSWER SECTION:" | tail -1)
-    echo "$2 $res" | awk '{print "The subdomain " $1 " is a " $5 " record and points to " $6 }'
+    echo "$2 $res" | awk '{print " The subdomain " $1 " is a " $5 " record and points to " $6 }'
 }
 
 # func "emycodes.tech" "www"
