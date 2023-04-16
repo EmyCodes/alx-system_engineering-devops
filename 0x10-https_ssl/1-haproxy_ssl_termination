@@ -34,14 +34,14 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend http_front
+frontend emycodes_frontend
         bind *:80
         bind *:443 ssl crt /etc/haproxy/certs/www.emycodes.tech.pem
         redirect scheme https if !{ ssl_fc }
         mode http
-        default_backend http_back
+        default_backend emycodes_backend
 
-backend http_back
+backend emycodes_backend
         balance roundrobin
         server 135836-web-01 34.202.157.83:80 check
         server 135836-web-02 54.160.127.203:80 check
