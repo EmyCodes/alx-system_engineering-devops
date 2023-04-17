@@ -2,6 +2,7 @@
 
 # Installing ufw
 sudo apt-get update -y
+sudp apt-get upgrade -y
 sudo apt-get install ufw -y
 
 # Configuring ufw so that it blocks all incoming traffics
