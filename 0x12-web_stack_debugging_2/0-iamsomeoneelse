@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Creaating a script that  runs the whoami command under the user passed as an argument
-
-su - "$1" -c "whoami"
+# runs whoami command under the user passed as an argument
+sudo -u "$1" whoami
