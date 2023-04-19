@@ -19,12 +19,12 @@ chmod 644 /etc/nginx/nginx.conf
 # Change nginx user in nginx.conf
 # Update configuration
 sed -i 's/user www-data;/user nginx;/' /etc/nginx/nginx.conf
-sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
-sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:8080 default_server;/' /etc/nginx/sites-available/default
+# sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
+# sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:8080 default_server;/' /etc/nginx/sites-available/default
 
 
 # Configure nginx to listen on all active IPs on port 8080
-# sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 
 # apache may interfere with nginx so kill the process if it is running
 pkill apache2
