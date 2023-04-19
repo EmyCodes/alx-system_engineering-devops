@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # Run Nginx as Nginx
 
+# Checking if user doesn't exist,
+if ! id -u nginx > /dev/null 2>&1; then
+	echo "Creating user 'nginx'..."
+	sudo adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+fi
+
 # Stop nginx if it's currently running
 sudo service nginx stop
 
@@ -17,4 +23,4 @@ sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 pkill apache2
 
 # Start nginx
-sudo -u nginx service nginx start
+sudo -n service nginx restart
