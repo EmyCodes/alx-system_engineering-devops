@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Get the password from command-line argument
+MYSQL_PASSSWORD="$1"
+
+# Filename format for the backup
+FILE_NAME="$(date +"%d-%m-%Y").tar.gz"
+
+# Dump the MySQL databsess and compress them
+mysqldump --user=root --password="$MYSQL_PASSSWORD" --all-databases > backup.sql
+tar -czf "$FILE_NAME" "backup.sql"
