@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
-""" Checks student output for returning info from REST API """
 
-=======
-""" Python script that, using this REST API, for a given employee ID, returns information about his/her TODO list progress """
->>>>>>> parent of 1cdd927... 0-gather_data_from_an_API.py formatted to pycodestyle
+""" Checks student output for returning info from REST API """
 import requests
 import sys
 
@@ -19,14 +15,12 @@ if __name__ == "__main__":
     # parsing JSON response into Python dictionaries
     employeeData = employeeResponse.json()
     tasksData = tasksResponse.json()
-
-<<<<<<< HEAD
     # Getting length of total tasks and total total data
     totalTask = len(tasksData)
-=======
     # Getting length of total tasks and total total data 
     totalData = len(tasksData)
->>>>>>> parent of 1cdd927... 0-gather_data_from_an_API.py formatted to pycodestyle
+    # Getting length of total tasks and total total data 
+    totalData = len(tasksData)
     taskCompleted = [task for task in tasksData if task['completed']]
     numOftaskCompleted = len(taskCompleted)
 
@@ -37,9 +31,3 @@ if __name__ == "__main__":
     # display the Title of tasks completed
     for task in tasksData:
         print("\t {}".format(task['title']))
-<<<<<<< HEAD
-=======
-
-    
-    
->>>>>>> parent of 1cdd927... 0-gather_data_from_an_API.py formatted to pycodestyle
