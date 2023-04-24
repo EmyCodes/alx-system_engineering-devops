@@ -5,8 +5,7 @@ import requests
 import sys
 
 
-if __name__ == "__main__":
-
+def getEmployeeDetails():
     # Getting employee details: employee id, employee response, task response
     employeeId = sys.argv[1]
     users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employeeId)
@@ -31,3 +30,6 @@ if __name__ == "__main__":
     # display the Title of tasks completed
     for task in tasksData:
         print("\t {}".format(task['title']))
+if __name__ == "__main__":
+	getEmployeeDetails()
+	
