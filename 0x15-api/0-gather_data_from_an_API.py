@@ -9,10 +9,10 @@ if __name__ == "__main__":
 
     # Getting employee details: employee id, employee response, task response
     employeeId = sys.argv[1]
-    users_url = 'https://jsonplaceholder.typicode.com/users/{}'
-    todos_url = 'https://jsonplaceholder.typicode.com/todos?UserId={}'
-    employeeResponse = requests.get(users_url.format(employeeId))
-    tasksResponse = requests.get(todos_url.format(employeeId))
+    users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employeeId))
+    todos_url = 'https://jsonplaceholder.typicode.com/todos?UserId={}'.format(employeeId))
+    employeeResponse = requests.get(users_url)
+    tasksResponse = requests.get(todos_url)
 
     # parsing JSON response into Python dictionaries
     employeeData = employeeResponse.json()
@@ -20,13 +20,13 @@ if __name__ == "__main__":
     # Getting length of total tasks and total total data
     totalTask = len(tasksData)
     # Getting length of total tasks and total total data
-    totalTask = len(tasksData)
+    totalData = len(tasksData)
     taskCompleted = [task for task in tasksData if task['completed']]
-    completedTask = len(taskCompleted)
+    numOftaskCompleted = len(taskCompleted)
 
     # display employed name and TODO list progress
-    name = employeeData['name']
-    print(f"Emloyee {name} is done with tasks({completedTask}/{totalTask})")
+    employeeName = employeeData['name']
+    print("Emloyee {} is done with tasks({}/{})".format(employeeName, numOftaskCompleted, totalData))
 
     # display the Title of tasks completed
     for task in tasksData:
