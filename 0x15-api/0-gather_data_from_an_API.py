@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Checks student output for returning info from REST API
-"""
+""" Checks student output for returning info from REST API """
 
 import requests
 import sys
@@ -19,7 +17,7 @@ if __name__ == "__main__":
     employeeData = employeeResponse.json()
     tasksData = tasksResponse.json()
 
-    # Getting length of total tasks and total total data 
+    # Getting length of total tasks and total total data
     totalTask = len(tasksData)
     taskCompleted = [task for task in tasksData if task['completed']]
     completedTask = len(taskCompleted)
@@ -30,4 +28,4 @@ if __name__ == "__main__":
 
     # display the Title of tasks completed
     for task in tasksData:
-        print("\t {}".format(task['title'])) 
+        print("\t {}".format(task['title']))
