@@ -8,8 +8,8 @@ import sys
 def getEmployeeDetails():
     # Getting employee details: employee id, employee response, task response
     employeeId = sys.argv[1]
-    users_url = f'https://jsonplaceholder.typicode.com/users/{employeeId}'
-    todos_url = f'https://jsonplaceholder.typicode.com/todos?UserId={employeeId}'
+    users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employeeId)
+    todos_url = 'https://jsonplaceholder.typicode.com/todos?UserId={}'.format(employeeId)
     employeeResponse = requests.get(users_url)
     tasksResponse = requests.get(todos_url)
 
