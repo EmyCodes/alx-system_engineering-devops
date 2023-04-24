@@ -8,8 +8,8 @@ import sys
 def getEmployeeDetails():
     # Getting employee details: employee id, employee response, task response
     employeeId = sys.argv[1]
-    users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employeeId)
-    todos_url = 'https://jsonplaceholder.typicode.com/todos?UserId={}'.format(employeeId)
+    users_url = f'https://jsonplaceholder.typicode.com/users/{employeeId}'
+    todos_url = f'https://jsonplaceholder.typicode.com/todos?UserId={employeeId}'
     employeeResponse = requests.get(users_url)
     tasksResponse = requests.get(todos_url)
 
@@ -25,11 +25,11 @@ def getEmployeeDetails():
 
     # display employed name and TODO list progress
     employeeName = employeeData['name']
-    print("Emloyee {} is done with tasks({}/{})".format(employeeName, numOftaskCompleted, totalData))
+    print("Emloyee {} is done with tasks({}/{})"
+          .format(employeeName, numOftaskCompleted, totalData))
 
     # display the Title of tasks completed
     for task in tasksData:
         print("\t {}".format(task['title']))
 if __name__ == "__main__":
 	getEmployeeDetails()
-	
