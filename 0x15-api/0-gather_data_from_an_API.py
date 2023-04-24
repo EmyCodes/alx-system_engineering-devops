@@ -9,8 +9,8 @@ if __name__ == "__main__":
 
     # Getting employee details: employee id, employee response, task response
     employeeId = sys.argv[1]
-    users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employeeId))
-    todos_url = 'https://jsonplaceholder.typicode.com/todos?UserId={}'.format(employeeId))
+    users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employeeId)
+    todos_url = 'https://jsonplaceholder.typicode.com/todos?UserId={}'.format(employeeId)
     employeeResponse = requests.get(users_url)
     tasksResponse = requests.get(todos_url)
 
