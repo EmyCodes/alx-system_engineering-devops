@@ -1,14 +1,18 @@
 #!/usr/bin/python3
 """
-A Python script that, using the REST API,
-returns information about the TODO list progress
-for a given employee ID.
+This module gathers data from a REST API to retrieve information
+about the TODO list progress for a given employee ID.
 """
+
 import requests
 import sys
 
 
-if __name__ == "__main__":
+def gather_data():
+    """
+    Retrieves the TODO list progress for a given employee ID
+    and prints the employee's name and the number of completed tasks.
+    """
     # Gets Employee information
     user_id = int(sys.argv[1])
     user_url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
@@ -29,4 +33,8 @@ if __name__ == "__main__":
         EMPLOYEE_NAME, len(NUMBER_OF_DONE_TASKS), len(TOTAL_NUMBER_OF_TASKS))
     )
     for task in NUMBER_OF_DONE_TASKS:
-        print("\t{}".format(task.get("title")))
+        print("\t {}".format(task.get("title")))
+
+
+if __name__ == "__main__":
+    gather_data()
