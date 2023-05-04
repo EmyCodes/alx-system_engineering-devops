@@ -2,10 +2,11 @@
 import requests
 import sys
 
-""" A Python script that, using this REST API,
-for a given employee ID, return information about his/her
-TODO list progress. """
-
+"""
+A Python script that, using the REST API,
+returns information about the TODO list progress
+for a given employee ID.
+"""
 
 if __name__ == "__main__":
     # Gets Employee information
@@ -27,5 +28,5 @@ if __name__ == "__main__":
     print("Employee {} is done with tasks ({}/{})".format(
         EMPLOYEE_NAME, len(NUMBER_OF_DONE_TASKS), len(TOTAL_NUMBER_OF_TASKS))
     )
-    for tasks in NUMBER_OF_DONE_TASKS:
-        print("\t {}".format(tasks.get("title")))
+    for task in NUMBER_OF_DONE_TASKS:
+        print("\t{}".format(task.get("title")))
