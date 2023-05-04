@@ -36,7 +36,7 @@ if __name__ == "__main__":
         ]
     }
 
-    print(output)
+    # print(output)
 
     with open("{}.json".format(str(user_id)), "w", encoding="utf-8") as file_:
         json.dump(output, file_)
