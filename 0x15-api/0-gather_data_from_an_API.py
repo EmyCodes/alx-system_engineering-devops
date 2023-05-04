@@ -8,14 +8,14 @@ import requests
 import sys
 
 
-def gather_data():
+if __name__ == "__main__":
     """
     Retrieves the TODO list progress for a given employee ID
     and prints the employee's name and the number of completed tasks.
     """
     # Gets Employee information
     user_id = int(sys.argv[1])
-    user_url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
+    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
     response1 = requests.get(user_url).json()
     EMPLOYEE_NAME = response1.get("name")
 
@@ -34,7 +34,3 @@ def gather_data():
     )
     for task in NUMBER_OF_DONE_TASKS:
         print("\t {}".format(task.get("title")))
-
-# Make code inexecutable
-if __name__ == "__main__":
-    gather_data()
