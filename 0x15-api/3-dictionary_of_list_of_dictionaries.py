@@ -1,42 +1,37 @@
 #!/usr/bin/python3
 """
 This module gathers data from a REST API to retrieve information
-about the TODO list progress for a given employee ID.
+about the TODO list progress for all employees.
 """
 
 import json
 import requests
-import sys
 
 
 if __name__ == "__main__":
     """
-    Retrieves the TODO list progress for a given employee ID
-    and prints the employee's name and the number of completed tasks.
+    Retrieves the TODO list progress for all employees
+    and stores the information in a dictionary of lists of dictionaries.
     """
-    # Gets Employee information
-    user_id = int(sys.argv[1])
-    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
+    user_url = "https://jsonplaceholder.typicode.com/users"
     user_response = requests.get(user_url).json()
-    username = user_response.get("username")
-    print(username)
 
-    # Get number of tasks done
     todo_url = "https://jsonplaceholder.typicode.com/todos"
     todos_response = requests.get(todo_url).json()
 
-    output = {
-        user_id: [
+    output = {}
+    for user in user_response:
+        user_id = user.get("id")
+        username = user.get("username")
+        tasks = [
             {
+                "username": username,
                 "task": task.get("title"),
                 "completed": task.get("completed"),
-                "username": username
             }
             for task in todos_response if task.get("userId") == user_id
         ]
-    }
+        output[user_id] = tasks
 
-    # print(output)
-
-    with open("{}.json".format(str(user_id)), "w", encoding="utf-8") as file_:
+    with open("todo_all_employees.json", "w", encoding="utf-8") as file_:
         json.dump(output, file_)
