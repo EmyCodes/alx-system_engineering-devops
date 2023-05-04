@@ -35,6 +35,6 @@ def gather_data():
     for task in NUMBER_OF_DONE_TASKS:
         print("\t {}".format(task.get("title")))
 
-
+# Make code inexecutable
 if __name__ == "__main__":
     gather_data()
