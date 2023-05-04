@@ -2,11 +2,9 @@
 import requests
 import sys
 
-
 """ A Python script that, using this REST API,
 for a given employee ID, return information about his/her
- TODO list progress.
-"""
+TODO list progress. """
 
 
 if __name__ == "__main__":
