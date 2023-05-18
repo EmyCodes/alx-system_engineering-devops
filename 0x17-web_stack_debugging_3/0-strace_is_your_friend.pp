@@ -3,4 +3,3 @@ file { '/var/www/html/wp-settings.php':
   content => inline_template('<%= File.read("/var/www/html/wp-settings.php").gsub(/\.phpp/, ".php") %>'),
 }
 
-
