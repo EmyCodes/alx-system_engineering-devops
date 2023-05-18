@@ -6,3 +6,4 @@ exec { 'change_value_to_50':
 exec { 'change_value_to_40':
   command => "/bin/sed -i 's/4/40/g' /etc/security/limits.conf",
 }
+
